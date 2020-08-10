@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CalcApp</string>
+    <string name="title">Arithmetic calculation</string>
+    <string name="number">number</string>
+</resources>
