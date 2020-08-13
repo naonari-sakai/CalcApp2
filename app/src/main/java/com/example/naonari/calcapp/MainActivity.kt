@@ -16,12 +16,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         buttonDivision.setOnClickListener(this)
         buttonMultiply.setOnClickListener(this)
     }
-    var Calculation:Double = 0.0
+    var Calculation =0.0
 
     override fun onClick(v: View?) {
         if (editTextNumber.text != null && editTextNumber2.text != null) {
             var firstNumber = editTextNumber.text.toString().toDouble()
-            var SecondNumber = editTextNumber.text.toString().toDouble()
+            var SecondNumber = editTextNumber2.text.toString().toDouble()
+
 
             if (v != null) {
                 when (v.id) {
@@ -29,9 +30,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     R.id.buttonMinus -> Calculation = firstNumber - SecondNumber
                     R.id.buttonMultiply ->Calculation = firstNumber * SecondNumber
                     R.id.buttonDivision -> Calculation = firstNumber / SecondNumber
+
                 }
+                move(Calculation)
             }
-            move(Calculation)
                     }
     }
 
