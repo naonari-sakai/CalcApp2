@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     var Calculation = 0.0
 
     override fun onClick(v: View?) {
-        if (editTextNumber.text != null && editTextNumber2.text != null) {
+        if (editTextNumber.text.isNotBlank() && editTextNumber2.text.isNotBlank() ) {
             var firstNumber = editTextNumber.text.toString().toDouble()
             var SecondNumber = editTextNumber2.text.toString().toDouble()
 
