@@ -3,7 +3,9 @@ package com.example.naonari.calcapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -16,7 +18,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         buttonDivision.setOnClickListener(this)
         buttonMultiply.setOnClickListener(this)
     }
-    var Calculation =0.0
+
+    var Calculation = 0.0
 
     override fun onClick(v: View?) {
         if (editTextNumber.text != null && editTextNumber2.text != null) {
@@ -28,18 +31,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 when (v.id) {
                     R.id.buttonPlus -> Calculation = firstNumber + SecondNumber
                     R.id.buttonMinus -> Calculation = firstNumber - SecondNumber
-                    R.id.buttonMultiply ->Calculation = firstNumber * SecondNumber
+                    R.id.buttonMultiply -> Calculation = firstNumber * SecondNumber
                     R.id.buttonDivision -> Calculation = firstNumber / SecondNumber
 
                 }
                 move(Calculation)
             }
-                    }
+        }else{ Snackbar.make(v!!,"計算したい2つの数字を入力してください",Snackbar.LENGTH_LONG).show()
+        }
     }
 
-    private fun move(calculation:Double){
-        val intent = Intent(this,result::class.java)
-        intent.putExtra("result",calculation)
+    private fun move(calculation: Double) {
+        val intent = Intent(this, result::class.java)
+        intent.putExtra("result", calculation)
         startActivity(intent)
     }
 
